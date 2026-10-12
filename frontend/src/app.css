@@ -1,0 +1,165 @@
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+@import 'leaflet.markercluster/dist/MarkerCluster.css';
+
+/*
+ * Tokens de cor. Os componentes usam os papéis (superfície, tinta, série...)
+ * e o tema escuro troca os valores num lugar só.
+ */
+:root {
+    color-scheme: light;
+    --pagina: #f9f9f7;
+    --superficie: #fcfcfb;
+    --superficie-2: #f0efec;
+    --tinta: #0b0b0b;
+    --tinta-2: #52514e;
+    --tinta-suave: #898781;
+    --grade: #e1e0d9;
+    --eixo: #c3c2b7;
+    --borda: rgba(11, 11, 11, 0.1);
+
+    --serie-1: #2a78d6;
+    --serie-2: #eb6834;
+    --fogo: #e8590c;
+    --fogo-forte: #c2410c;
+
+    --status-alta: #d03b3b;
+    --status-baixa: #006300;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme='light'])) {
+        color-scheme: dark;
+        --pagina: #0d0d0d;
+        --superficie: #1a1a19;
+        --superficie-2: #262624;
+        --tinta: #ffffff;
+        --tinta-2: #c3c2b7;
+        --tinta-suave: #898781;
+        --grade: #2c2c2a;
+        --eixo: #383835;
+        --borda: rgba(255, 255, 255, 0.1);
+
+        --serie-1: #3987e5;
+        --serie-2: #d95926;
+        --fogo: #fb7c3c;
+        --fogo-forte: #fdba74;
+
+        --status-alta: #e66767;
+        --status-baixa: #0ca30c;
+    }
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --pagina: #0d0d0d;
+    --superficie: #1a1a19;
+    --superficie-2: #262624;
+    --tinta: #ffffff;
+    --tinta-2: #c3c2b7;
+    --tinta-suave: #898781;
+    --grade: #2c2c2a;
+    --eixo: #383835;
+    --borda: rgba(255, 255, 255, 0.1);
+
+    --serie-1: #3987e5;
+    --serie-2: #d95926;
+    --fogo: #fb7c3c;
+    --fogo-forte: #fdba74;
+
+    --status-alta: #e66767;
+    --status-baixa: #0ca30c;
+}
+
+@theme inline {
+    --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    --color-pagina: var(--pagina);
+    --color-superficie: var(--superficie);
+    --color-superficie-2: var(--superficie-2);
+    --color-tinta: var(--tinta);
+    --color-tinta-2: var(--tinta-2);
+    --color-tinta-suave: var(--tinta-suave);
+    --color-grade: var(--grade);
+    --color-eixo: var(--eixo);
+    --color-borda: var(--borda);
+    --color-serie-1: var(--serie-1);
+    --color-serie-2: var(--serie-2);
+    --color-fogo: var(--fogo);
+    --color-fogo-forte: var(--fogo-forte);
+    --color-status-alta: var(--status-alta);
+    --color-status-baixa: var(--status-baixa);
+}
+
+@layer base {
+    body {
+        @apply bg-pagina text-tinta antialiased;
+    }
+}
+
+@layer components {
+    .cartao {
+        @apply rounded-xl border border-borda bg-superficie;
+    }
+
+    .rotulo {
+        @apply text-xs font-medium tracking-wide text-tinta-2 uppercase;
+    }
+
+    .campo {
+        @apply h-9 rounded-lg border border-borda bg-superficie px-2.5 text-sm text-tinta focus:border-serie-1 focus:outline-none;
+    }
+
+    .botao-aba {
+        @apply rounded-md px-2.5 py-1 text-xs font-medium text-tinta-2 hover:bg-superficie-2 aria-pressed:bg-superficie-2 aria-pressed:text-tinta;
+    }
+}
+
+/* Leaflet: popups e clusters seguindo o tema */
+.leaflet-container {
+    font: inherit;
+    background: var(--superficie-2);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: var(--superficie);
+    color: var(--tinta);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.18);
+}
+
+.leaflet-popup-content {
+    margin: 12px 14px;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: var(--tinta-suave);
+}
+
+/* O OpenStreetMap só tem mapa claro: no tema escuro os tiles são invertidos */
+:root[data-theme='dark'] .mapa-base {
+    filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.85) saturate(0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme='light'])) .mapa-base {
+        filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.85) saturate(0.6);
+    }
+}
+
+.leaflet-control-attribution {
+    font-size: 10px;
+}
+
+.cluster-foco {
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--fogo) 85%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--fogo) 30%, transparent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}

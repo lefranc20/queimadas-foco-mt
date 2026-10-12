@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  backend:
+    name: Backend · PHP ${{ matrix.php }} (${{ matrix.banco }})
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.4'
+            banco: sqlite
+          - php: '8.5'
+            banco: sqlite
+          - php: '8.4'
+            banco: pgsql
+
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: focos_teste
+          POSTGRES_USER: focos
+          POSTGRES_PASSWORD: focos
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U focos"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: pdo_sqlite, pdo_pgsql
+          coverage: none
+
+      - name: Instalar dependências
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Preparar ambiente
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Estilo de código (Pint)
+        if: matrix.banco == 'sqlite' && matrix.php == '8.4'
+        run: vendor/bin/pint --test
+
+      - name: Testes (SQLite em memória)
+        if: matrix.banco == 'sqlite'
+        run: php artisan test
+
+      - name: Testes (PostgreSQL)
+        if: matrix.banco == 'pgsql'
+        env:
+          DB_CONNECTION: pgsql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 5432
+          DB_DATABASE: focos_teste
+          DB_USERNAME: focos
+          DB_PASSWORD: focos
+        run: php artisan test
+
+  frontend:
+    name: Frontend · build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
