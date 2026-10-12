@@ -1,0 +1,49 @@
+# Coleta agendada pelo GitHub Actions, como alternativa ao scheduler do Laravel
+# para hospedagens gratuitas que "dormem" sem acesso (ex.: Render free).
+# Só roda se o segredo DB_URL (conexão do PostgreSQL de produção) estiver configurado.
+name: Coleta de focos
+
+on:
+  schedule:
+    - cron: '20 * * * *' # arquivo do dia, a cada hora
+    - cron: '40 12 * * *' # arquivo de ontem, depois da publicação do INPE (09:40 BRT)
+  workflow_dispatch:
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    env:
+      DB_URL: ${{ secrets.DB_URL }}
+
+    steps:
+      - name: Verificar configuração
+        id: config
+        run: echo "ativo=${{ env.DB_URL != '' }}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        if: steps.config.outputs.ativo == 'true'
+
+      - uses: shivammathur/setup-php@v2
+        if: steps.config.outputs.ativo == 'true'
+        with:
+          php-version: '8.4'
+          extensions: pdo_pgsql
+          coverage: none
+
+      - name: Instalar dependências
+        if: steps.config.outputs.ativo == 'true'
+        working-directory: backend
+        run: composer install --no-dev --no-interaction --prefer-dist --no-progress
+
+      - name: Importar focos
+        if: steps.config.outputs.ativo == 'true'
+        working-directory: backend
+        env:
+          DB_CONNECTION: pgsql
+        run: |
+          cp .env.example .env
+          if [ "${{ github.event.schedule }}" = "40 12 * * *" ]; then
+            php artisan focos:importar ontem
+          else
+            php artisan focos:importar hoje || echo "Arquivo de hoje ainda não publicado."
+          fi
