@@ -137,6 +137,47 @@ class ImportarFocosTest extends TestCase
         Http::assertNothingSent();
     }
 
+    public function test_importa_varios_dias_pulando_arquivos_ausentes(): void
+    {
+        $base = 'https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/';
+        $csv = file_get_contents(base_path('tests/fixtures/focos_diario_br_20260915.csv'));
+        Http::fake([
+            $base.'focos_diario_br_20260913.csv' => Http::response('', 404),
+            $base.'focos_diario_br_20260914.csv' => fn () => Http::response($csv),
+            $base.'focos_diario_br_20260915.csv' => fn () => Http::response($csv),
+        ]);
+
+        $this->artisan('focos:importar', ['data' => '2026-09-15', '--dias' => 3])
+            ->expectsOutputToContain('focos_diario_br_20260913.csv')
+            ->expectsTable(['Arquivo', 'Focos em MT', 'Novos', 'Atualizados'], [
+                ['focos_diario_br_20260914.csv', 3, 3, 0],
+                ['focos_diario_br_20260915.csv', 3, 0, 3],
+                ['Total', 6, 3, 3],
+            ])
+            ->assertSuccessful();
+
+        Http::assertSentCount(3);
+        $this->assertSame(3, Foco::count());
+    }
+
+    public function test_rejeita_quantidade_de_dias_invalida(): void
+    {
+        $this->artisan('focos:importar', ['--dias' => 0])->assertExitCode(2);
+        $this->artisan('focos:importar', ['--dias' => 'abc'])->assertExitCode(2);
+
+        Http::assertNothingSent();
+    }
+
+    public function test_opcao_fila_com_dias_despacha_um_job_por_dia(): void
+    {
+        Queue::fake();
+
+        $this->artisan('focos:importar', ['data' => '2026-09-15', '--dias' => 3, '--fila' => true])->assertSuccessful();
+
+        Queue::assertPushed(ImportarFocosDiarios::class, 3);
+        Queue::assertPushed(ImportarFocosDiarios::class, fn ($job) => $job->data === '2026-09-13');
+    }
+
     public function test_job_ignora_arquivo_ainda_nao_publicado(): void
     {
         Http::fake(['*' => Http::response('Not Found', 404)]);
