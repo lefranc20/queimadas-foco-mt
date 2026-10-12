@@ -1,0 +1,50 @@
+# Blueprint do Render (https://render.com/docs/blueprint-spec)
+# Dois serviços independentes: a API (Docker) e o painel (site estático).
+services:
+  - type: web
+    name: queimadas-mt-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    healthCheckPath: /up
+    envVars:
+      # gere com: php artisan key:generate --show
+      - key: APP_KEY
+        sync: false
+      - key: APP_URL
+        sync: false
+      # endereço do painel publicado, para liberar o CORS
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL
+        fromDatabase:
+          name: queimadas-mt-db
+          property: connectionString
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: SESSION_DRIVER
+        value: array
+
+  - type: web
+    name: queimadas-mt-painel
+    runtime: static
+    rootDir: frontend
+    buildCommand: yarn install --frozen-lockfile && yarn build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # endereço da API publicada, ex.: https://queimadas-mt-api.onrender.com
+      - key: VITE_API_URL
+        sync: false
+
+databases:
+  - name: queimadas-mt-db
+    plan: free
+    databaseName: focos
