@@ -1,0 +1,771 @@
+{
+ "estado": {
+  "municipio": "Mato Grosso",
+  "arquivo": "Bandeira de Mato Grosso.svg",
+  "autor": null,
+  "licenca": "Public domain",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Mato_Grosso.svg"
+ },
+ "municipios": [
+  {
+   "id": 5100102,
+   "municipio": "Acorizal",
+   "arquivo": "Bandeira Acorizal-MT.jpg",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Acorizal-MT.jpg"
+  },
+  {
+   "id": 5100250,
+   "municipio": "Alta Floresta",
+   "arquivo": "Bandeira de Alta Floresta.jpg",
+   "autor": "Alta Floresta City Hall",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Alta_Floresta.jpg"
+  },
+  {
+   "id": 5100300,
+   "municipio": "Alto Araguaia",
+   "arquivo": "Bandeira de Alto Araguaia (Mato Grosso).png",
+   "autor": "Prefeitura de Alto Araguaia",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Alto_Araguaia_(Mato_Grosso).png"
+  },
+  {
+   "id": 5100359,
+   "municipio": "Alto Boa Vista",
+   "arquivo": "Bandeira Alto Boa Vista-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Alto_Boa_Vista-MT.png"
+  },
+  {
+   "id": 5100409,
+   "municipio": "Alto Garças",
+   "arquivo": "Bandeira de alto garças mt 2023.png",
+   "autor": "Sandro Yelles",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_alto_gar%C3%A7as_mt_2023.png"
+  },
+  {
+   "id": 5100508,
+   "municipio": "Alto Paraguai",
+   "arquivo": "Alto Paraguai.jpg",
+   "autor": "Luis Gabriel Moraes Dias",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Alto_Paraguai.jpg"
+  },
+  {
+   "id": 5100607,
+   "municipio": "Alto Taquari",
+   "arquivo": "Bandeira Alto Taquari-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Alto_Taquari-MT.png"
+  },
+  {
+   "id": 5100805,
+   "municipio": "Apiacás",
+   "arquivo": "Bandeira Apiacás-MT.png",
+   "autor": null,
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Apiac%C3%A1s-MT.png"
+  },
+  {
+   "id": 5101209,
+   "municipio": "Araguainha",
+   "arquivo": "Bandeira de Araguainha-MT.jpg",
+   "autor": "Luucasmoreira",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Araguainha-MT.jpg"
+  },
+  {
+   "id": 5101258,
+   "municipio": "Araputanga",
+   "arquivo": "Bandeira Araputanga-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Araputanga-MT.png"
+  },
+  {
+   "id": 5101308,
+   "municipio": "Arenápolis",
+   "arquivo": "Bandeira Arenápolis-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Aren%C3%A1polis-MT.png"
+  },
+  {
+   "id": 5101407,
+   "municipio": "Aripuanã",
+   "arquivo": "Aripuanã - Bandeira.PNG",
+   "autor": null,
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Aripuan%C3%A3_-_Bandeira.PNG"
+  },
+  {
+   "id": 5101704,
+   "municipio": "Barra do Bugres",
+   "arquivo": "Bandeira de Barra do Bugres (Mato Grosso).svg",
+   "autor": "BrCaLeTo",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Barra_do_Bugres_(Mato_Grosso).svg"
+  },
+  {
+   "id": 5101803,
+   "municipio": "Barra do Garças",
+   "arquivo": "Bandeira de Barra do Garças.jpg",
+   "autor": "http://www.achetudoeregiao.com.br/mt/barra_do_garcas/geografia.htm",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Barra_do_Gar%C3%A7as.jpg"
+  },
+  {
+   "id": 5101605,
+   "municipio": "Barão de Melgaço",
+   "arquivo": "Bandeira Barão de Melgaço-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Bar%C3%A3o_de_Melga%C3%A7o-MT.png"
+  },
+  {
+   "id": 5101837,
+   "municipio": "Boa Esperança do Norte",
+   "arquivo": "Bandeira de Boa Esperança do Norte MT.jpg",
+   "autor": "Prefeitura de Boa Esperança do Norte MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Boa_Esperan%C3%A7a_do_Norte_MT.jpg"
+  },
+  {
+   "id": 5101852,
+   "municipio": "Bom Jesus do Araguaia",
+   "arquivo": "Bandeira Bom Jesus do Araguaia-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Bom_Jesus_do_Araguaia-MT.png"
+  },
+  {
+   "id": 5101902,
+   "municipio": "Brasnorte",
+   "arquivo": "Bandeira Brasnorte.png",
+   "autor": "Prefeitura Municipal de Brasnorte",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Brasnorte.png"
+  },
+  {
+   "id": 5102603,
+   "municipio": "Campinápolis",
+   "arquivo": "Bandeira Campinápolis-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Campin%C3%A1polis-MT.png"
+  },
+  {
+   "id": 5102637,
+   "municipio": "Campo Novo do Parecis",
+   "arquivo": "Bandeira de Campo Novo do Parecis.jpeg",
+   "autor": "Nehemiah Joseph",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Campo_Novo_do_Parecis.jpeg"
+  },
+  {
+   "id": 5102678,
+   "municipio": "Campo Verde",
+   "arquivo": "Bandeira de Campo Verde.jpg",
+   "autor": "Prefeitura Municipal de Campo Verde",
+   "licenca": "Attribution",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Campo_Verde.jpg"
+  },
+  {
+   "id": 5102686,
+   "municipio": "Campos de Júlio",
+   "arquivo": "Bandeira de Campos de Júlio.jpg",
+   "autor": null,
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Campos_de_J%C3%BAlio.jpg"
+  },
+  {
+   "id": 5102694,
+   "municipio": "Canabrava do Norte",
+   "arquivo": "Bandeira de Canabrava do norte.jpg",
+   "autor": "BrunOB",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Canabrava_do_norte.jpg"
+  },
+  {
+   "id": 5102702,
+   "municipio": "Canarana",
+   "arquivo": "Bandeira Canarana MT.png",
+   "autor": "Prefeitura Canarana_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Canarana_MT.png"
+  },
+  {
+   "id": 5102793,
+   "municipio": "Carlinda",
+   "arquivo": "Bandeira de Carlinda.JPG",
+   "autor": "Andre.cr",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Carlinda.JPG"
+  },
+  {
+   "id": 5103007,
+   "municipio": "Chapada dos Guimarães",
+   "arquivo": "Bandeira de chapada dos guimaraes.jpg",
+   "autor": "https://www.querencia.mt.gov.br/Nossa-Cidade/Hino-Bandeira-Brasao/\nhttps://www.camarachapadadosguimaraes.mt.gov.br/cidad",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_chapada_dos_guimaraes.jpg"
+  },
+  {
+   "id": 5103205,
+   "municipio": "Colíder",
+   "arquivo": "Bandeira de Colíder (Mato Grosso).png",
+   "autor": "Prefeitura Colíder_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Col%C3%ADder_(Mato_Grosso).png"
+  },
+  {
+   "id": 5103304,
+   "municipio": "Comodoro",
+   "arquivo": "Bandeiracomodoromt.png",
+   "autor": "André Felipe da Silva (talk)",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeiracomodoromt.png"
+  },
+  {
+   "id": 5103353,
+   "municipio": "Confresa",
+   "arquivo": "Bandeira de Confresa.jpg",
+   "autor": "Mário Cardoso de Lima",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Confresa.jpg"
+  },
+  {
+   "id": 5103361,
+   "municipio": "Conquista D'Oeste",
+   "arquivo": "Bandeira Conquista d'Oeste MT.png",
+   "autor": "Prefeitura Conquista d'Oeste_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Conquista_d%27Oeste_MT.png"
+  },
+  {
+   "id": 5103379,
+   "municipio": "Cotriguaçu",
+   "arquivo": "Bandeira Cotriguaçu MT.jpg",
+   "autor": "Prefeitura Cotriguaçu_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Cotrigua%C3%A7u_MT.jpg"
+  },
+  {
+   "id": 5103403,
+   "municipio": "Cuiabá",
+   "arquivo": "Bandeira de Cuiabá.svg",
+   "autor": "Franklinbaldo 21:27, 30 December 2006 (UTC)",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Cuiab%C3%A1.svg"
+  },
+  {
+   "id": 5102504,
+   "municipio": "Cáceres",
+   "arquivo": "Bandeira-caceres.jpg",
+   "autor": "Cáceres City Hall",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira-caceres.jpg"
+  },
+  {
+   "id": 5103452,
+   "municipio": "Denise",
+   "arquivo": "BandeiraDenise-MT.jpg",
+   "autor": "FelipeGMV",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:BandeiraDenise-MT.jpg"
+  },
+  {
+   "id": 5103502,
+   "municipio": "Diamantino",
+   "arquivo": "Bandeira de Diamantino.svg",
+   "autor": "Wikimandia",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Diamantino.svg"
+  },
+  {
+   "id": 5103601,
+   "municipio": "Dom Aquino",
+   "arquivo": "Bandeira Dom Aquino.jpg",
+   "autor": null,
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Dom_Aquino.jpg"
+  },
+  {
+   "id": 5103700,
+   "municipio": "Feliz Natal",
+   "arquivo": "Bandeira de Feliz Natal, Mato Grosso.svg",
+   "autor": "Wikimandia",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Feliz_Natal,_Mato_Grosso.svg"
+  },
+  {
+   "id": 5103809,
+   "municipio": "Figueirópolis D'Oeste",
+   "arquivo": "Bandeira Figueiropolis dOeste.jpg",
+   "autor": "Azarias Neto",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Figueiropolis_dOeste.jpg"
+  },
+  {
+   "id": 5103957,
+   "municipio": "Glória D'Oeste",
+   "arquivo": "Bandeira do Município de Glória d`Oeste.png",
+   "autor": "DanielBeroy",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Munic%C3%ADpio_de_Gl%C3%B3ria_d%60Oeste.png"
+  },
+  {
+   "id": 5104104,
+   "municipio": "Guarantã do Norte",
+   "arquivo": "Bandeira de guarantã do norte.png",
+   "autor": "Amantedeviagens",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_guarant%C3%A3_do_norte.png"
+  },
+  {
+   "id": 5104203,
+   "municipio": "Guiratinga",
+   "arquivo": "Flag of Guiratinga.png",
+   "autor": "Walisson Barreto",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Flag_of_Guiratinga.png"
+  },
+  {
+   "id": 5104609,
+   "municipio": "Itiquira",
+   "arquivo": "Bandeira-itiquira.jpg",
+   "autor": "(Itiquira (talk));",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira-itiquira.jpg"
+  },
+  {
+   "id": 5104807,
+   "municipio": "Jaciara",
+   "arquivo": "Bandeira de Jaciara.png",
+   "autor": "Prefeitura de Jaciara",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Jaciara.png"
+  },
+  {
+   "id": 5105002,
+   "municipio": "Jauru",
+   "arquivo": "Flag of Jauru.jpg",
+   "autor": "Weberson Grizoste",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Flag_of_Jauru.jpg"
+  },
+  {
+   "id": 5105101,
+   "municipio": "Juara",
+   "arquivo": "Bandeira de Juara (Mato Grosso).png",
+   "autor": "Prefeitura de Juara",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Juara_(Mato_Grosso).png"
+  },
+  {
+   "id": 5105150,
+   "municipio": "Juína",
+   "arquivo": "Bandeira de Juína (Mato Grosso).png",
+   "autor": "Prefeitura de Juína-MT",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Ju%C3%ADna_(Mato_Grosso).png"
+  },
+  {
+   "id": 5105259,
+   "municipio": "Lucas do Rio Verde",
+   "arquivo": "Bandeira de Lucas do Rio Verde.jpg",
+   "autor": "Prefeitura de Lucas do Rio Verde",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Lucas_do_Rio_Verde.jpg"
+  },
+  {
+   "id": 5105580,
+   "municipio": "Marcelândia",
+   "arquivo": "Bandeira Marcelândia MT.png",
+   "autor": "Prefeitura Marcelândia_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Marcel%C3%A2ndia_MT.png"
+  },
+  {
+   "id": 5105606,
+   "municipio": "Matupá",
+   "arquivo": "Bandeira de matupa.jpg",
+   "autor": "Prefeitura Municipal de Matupa",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_matupa.jpg"
+  },
+  {
+   "id": 5105622,
+   "municipio": "Mirassol d'Oeste",
+   "arquivo": "Bandeira-mirassoldoeste.png",
+   "autor": "GGustavos",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira-mirassoldoeste.png"
+  },
+  {
+   "id": 5105903,
+   "municipio": "Nobres",
+   "arquivo": "Bandeira de Nobres.png",
+   "autor": "MKBRA",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Nobres.png"
+  },
+  {
+   "id": 5106109,
+   "municipio": "Nossa Senhora do Livramento",
+   "arquivo": "Bandeira de Nossa Senhora do Livramento.jpg",
+   "autor": "Prefeitura Municipal de Nossa Senhora do Livramento",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Nossa_Senhora_do_Livramento.jpg"
+  },
+  {
+   "id": 5106158,
+   "municipio": "Nova Bandeirantes",
+   "arquivo": "Bandeira Nova Bandeirantes MT.png",
+   "autor": "Prefeitura Nova Bandeirantes_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Nova_Bandeirantes_MT.png"
+  },
+  {
+   "id": 5108956,
+   "municipio": "Nova Monte Verde",
+   "arquivo": "Bandeira de Nova Monte Verde, MT.jpg",
+   "autor": "www.novamonteverde.mt.gov.br",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Nova_Monte_Verde,_MT.jpg"
+  },
+  {
+   "id": 5106224,
+   "municipio": "Nova Mutum",
+   "arquivo": "Bandeira Nova Mutum.jpg",
+   "autor": "Laismara Tasca",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Nova_Mutum.jpg"
+  },
+  {
+   "id": 5106232,
+   "municipio": "Nova Olímpia",
+   "arquivo": "Bandeira Nova Olímpia.png",
+   "autor": "Prefeitura Municipal de Nova Olímpia",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Nova_Ol%C3%ADmpia.png"
+  },
+  {
+   "id": 5106240,
+   "municipio": "Nova Ubiratã",
+   "arquivo": "Bandeira de Nova Ubiratã.png",
+   "autor": "Prefeitura de Nova Ubiratã",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Nova_Ubirat%C3%A3.png"
+  },
+  {
+   "id": 5106257,
+   "municipio": "Nova Xavantina",
+   "arquivo": "Bandeira de Nova Xavantina.svg",
+   "autor": "vectorization by Anzee",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Nova_Xavantina.svg"
+  },
+  {
+   "id": 5106265,
+   "municipio": "Novo Mundo",
+   "arquivo": "Bandeira Novo Mundo MT.png",
+   "autor": "Prefeitura Novo Mundo_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Novo_Mundo_MT.png"
+  },
+  {
+   "id": 5106281,
+   "municipio": "Novo São Joaquim",
+   "arquivo": "Bandeira de Novo São Joaquim.png",
+   "autor": "Wgsilveira",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Novo_S%C3%A3o_Joaquim.png"
+  },
+  {
+   "id": 5106307,
+   "municipio": "Paranatinga",
+   "arquivo": "Bandeira de Paranatinga.png",
+   "autor": "Prefeitura de Paranatinga",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Paranatinga.png"
+  },
+  {
+   "id": 5106299,
+   "municipio": "Paranaíta",
+   "arquivo": "Flag of Paranaíta MT.png",
+   "autor": "Prefeitura",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Flag_of_Parana%C3%ADta_MT.png"
+  },
+  {
+   "id": 5106372,
+   "municipio": "Pedra Preta",
+   "arquivo": "Bandeira de Pedra Preta - MT.svg",
+   "autor": "BrCaLeTo",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Pedra_Preta_-_MT.svg"
+  },
+  {
+   "id": 5106422,
+   "municipio": "Peixoto de Azevedo",
+   "arquivo": "Bandeira Peixoto de Azevedo.png",
+   "autor": "Emmanuel Lucas Vieira",
+   "licenca": "CC BY-SA 2.5",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Peixoto_de_Azevedo.png"
+  },
+  {
+   "id": 5106505,
+   "municipio": "Poconé",
+   "arquivo": "Bandeira Poconé.png",
+   "autor": "FelipeRM2008",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Pocon%C3%A9.png"
+  },
+  {
+   "id": 5106653,
+   "municipio": "Pontal do Araguaia",
+   "arquivo": "Bandeira PontalDoAraguaia MatoGrosso Brasil.jpg",
+   "autor": "Marcelina Henrica Ferreira (talk)",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_PontalDoAraguaia_MatoGrosso_Brasil.jpg"
+  },
+  {
+   "id": 5106703,
+   "municipio": "Ponte Branca",
+   "arquivo": "Ponte Branca flag.png",
+   "autor": "Bruno Luiz",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Ponte_Branca_flag.png"
+  },
+  {
+   "id": 5106752,
+   "municipio": "Pontes e Lacerda",
+   "arquivo": "Flag of Pontes e Lacerda.jpg",
+   "autor": "Luis Gabriel Moraes Dias",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Flag_of_Pontes_e_Lacerda.jpg"
+  },
+  {
+   "id": 5106778,
+   "municipio": "Porto Alegre do Norte",
+   "arquivo": "Bandeira de Porto Alegre do Norte.jpg",
+   "autor": "Prefeitura Municipal de Porto Alegre do Norte",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Porto_Alegre_do_Norte.jpg"
+  },
+  {
+   "id": 5106851,
+   "municipio": "Porto Estrela",
+   "arquivo": "Bandeira Porto Estrela.png",
+   "autor": "Prefeitura Municipal de Porto Estrela",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Porto_Estrela.png"
+  },
+  {
+   "id": 5107008,
+   "municipio": "Poxoréu",
+   "arquivo": "Bandeira de Poxoréu (Mato Grosso).jpg",
+   "autor": "Adilson Bioys",
+   "licenca": "Attribution",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Poxor%C3%A9u_(Mato_Grosso).jpg"
+  },
+  {
+   "id": 5107040,
+   "municipio": "Primavera do Leste",
+   "arquivo": "Bandeira de Primavera do Leste.jpg",
+   "autor": "Prefeitura de Primavera do Leste",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Primavera_do_Leste.jpg"
+  },
+  {
+   "id": 5107156,
+   "municipio": "Reserva do Cabaçal",
+   "arquivo": "Bandeira Reserva do Cabaçal MT.png",
+   "autor": "Prefeitura Reserva do Cabeçal_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Reserva_do_Caba%C3%A7al_MT.png"
+  },
+  {
+   "id": 5107180,
+   "municipio": "Ribeirão Cascalheira",
+   "arquivo": "Bandeira Ribeirão Cascalheira MT.jpg",
+   "autor": "Prefeitura Ribeirão Cascalheira_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Ribeir%C3%A3o_Cascalheira_MT.jpg"
+  },
+  {
+   "id": 5107198,
+   "municipio": "Ribeirãozinho",
+   "arquivo": "Bandeira de Ribeirãozinho.svg",
+   "autor": "Camervan",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Ribeir%C3%A3ozinho.svg"
+  },
+  {
+   "id": 5107602,
+   "municipio": "Rondonópolis",
+   "arquivo": "Bandeira de Rondonopolis.png",
+   "autor": null,
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Rondonopolis.png"
+  },
+  {
+   "id": 5107701,
+   "municipio": "Rosário Oeste",
+   "arquivo": "Rosario oeste bandeira.jpg",
+   "autor": "https://www.querencia.mt.gov.br/Nossa-Cidade/Hino-Bandeira-Brasao/\nhttps://www.camarachapadadosguimaraes.mt.gov.br/cidad",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Rosario_oeste_bandeira.jpg"
+  },
+  {
+   "id": 5107248,
+   "municipio": "Santa Carmem",
+   "arquivo": "Bandeira santa carmem.png",
+   "autor": "Andrefs",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_santa_carmem.png"
+  },
+  {
+   "id": 5107768,
+   "municipio": "Santa Rita do Trivelato",
+   "arquivo": "BSRT.jpeg",
+   "autor": "Prefeitura de Santa Rita do Trivelato",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:BSRT.jpeg"
+  },
+  {
+   "id": 5107800,
+   "municipio": "Santo Antônio de Leverger",
+   "arquivo": "Santo Antônio de Leverger Flag.jpg",
+   "autor": "Prefeitura de Santo Antonio do Leverger",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Santo_Ant%C3%B4nio_de_Leverger_Flag.jpg"
+  },
+  {
+   "id": 5107792,
+   "municipio": "Santo Antônio do Leste",
+   "arquivo": "Bandeira Santo Antonio do Leste.jpeg",
+   "autor": "Adeirjr.ti",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Santo_Antonio_do_Leste.jpeg"
+  },
+  {
+   "id": 5107875,
+   "municipio": "Sapezal",
+   "arquivo": "Bandeira Sapezal MT.jpg",
+   "autor": "Prefeitura Sapezal_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_Sapezal_MT.jpg"
+  },
+  {
+   "id": 5107909,
+   "municipio": "Sinop",
+   "arquivo": "Bandeira sinop mt.png",
+   "autor": null,
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_sinop_mt.png"
+  },
+  {
+   "id": 5107925,
+   "municipio": "Sorriso",
+   "arquivo": "Bandeira de Sorriso (Mato Grosso).jpg",
+   "autor": "Prefeitura de Sorriso (Mato Grosso)",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Sorriso_(Mato_Grosso).jpg"
+  },
+  {
+   "id": 5107859,
+   "municipio": "São Félix do Araguaia",
+   "arquivo": "São Félix do Araguaia.jpg",
+   "autor": "Xandysfa",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:S%C3%A3o_F%C3%A9lix_do_Araguaia.jpg"
+  },
+  {
+   "id": 5107297,
+   "municipio": "São José do Povo",
+   "arquivo": "Bandeira São José do Povo-MT.png",
+   "autor": "Prefeituras municipais dos respectivos municípios do Mato Grosso.",
+   "licenca": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_S%C3%A3o_Jos%C3%A9_do_Povo-MT.png"
+  },
+  {
+   "id": 5107305,
+   "municipio": "São José do Rio Claro",
+   "arquivo": "Bandeira de São José do Rio Claro.png",
+   "autor": "Prefeitura de São José do Rio Claro",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_S%C3%A3o_Jos%C3%A9_do_Rio_Claro.png"
+  },
+  {
+   "id": 5107107,
+   "municipio": "São José dos Quatro Marcos",
+   "arquivo": "Bandeira de SJQMarcos.jpg",
+   "autor": "Blog4marcos",
+   "licenca": "CC BY-SA 3.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_SJQMarcos.jpg"
+  },
+  {
+   "id": 5107404,
+   "municipio": "São Pedro da Cipa",
+   "arquivo": "Bandeira de São Pedro da Cipa.jpg",
+   "autor": "Emmanuel Lucas Vieira",
+   "licenca": "CC BY-SA 2.5",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_S%C3%A3o_Pedro_da_Cipa.jpg"
+  },
+  {
+   "id": 5107958,
+   "municipio": "Tangará da Serra",
+   "arquivo": "Bandeira de Tangará da Serra.jpg",
+   "autor": null,
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Tangar%C3%A1_da_Serra.jpg"
+  },
+  {
+   "id": 5108006,
+   "municipio": "Tapurah",
+   "arquivo": "Bandeira de tapurah.jpg",
+   "autor": "Bandeira_de_tapurah.jpg",
+   "licenca": "Attribution",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_tapurah.jpg"
+  },
+  {
+   "id": 5108352,
+   "municipio": "Vale de São Domingos",
+   "arquivo": "Bandeira de Vale de São Domingos-MT.png",
+   "autor": "Brasão de Municípios",
+   "licenca": "CC BY-SA 4.0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Vale_de_S%C3%A3o_Domingos-MT.png"
+  },
+  {
+   "id": 5105507,
+   "municipio": "Vila Bela da Santíssima Trindade",
+   "arquivo": "Vila-Belabandeira.jpg",
+   "autor": "Cidade de Vila Bela da Santíssima Trindade",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Vila-Belabandeira.jpg"
+  },
+  {
+   "id": 5108402,
+   "municipio": "Várzea Grande",
+   "arquivo": "Bandeira Várzea Grande.png",
+   "autor": "Prefeitura Municipal de Várzea Grande - MT.",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_V%C3%A1rzea_Grande.png"
+  },
+  {
+   "id": 5100201,
+   "municipio": "Água Boa",
+   "arquivo": "Bandeira Água Boa MT.png",
+   "autor": "Prefeitura Água Boa_MT",
+   "licenca": "Public domain",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bandeira_%C3%81gua_Boa_MT.png"
+  }
+ ]
+}
