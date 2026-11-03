@@ -24,6 +24,11 @@ class ClienteInpe
         return "{$this->urlBase}/diario/Brasil/focos_diario_br_{$data->format('Ymd')}.csv";
     }
 
+    public function urlDezMinutos(CarbonInterface $horario): string
+    {
+        return "{$this->urlBase}/10min/focos_10min_{$horario->format('Ymd_Hi')}.csv";
+    }
+
     public function urlMensal(int $ano, int $mes): string
     {
         return sprintf('%s/mensal/Brasil/focos_mensal_br_%d%02d.csv', $this->urlBase, $ano, $mes);

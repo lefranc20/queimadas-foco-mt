@@ -1,5 +1,12 @@
 <script setup>
+import { shallowRef } from 'vue';
 import { config } from '../lib/config.js';
+
+const creditos = shallowRef(null);
+
+fetch('/bandeiras/creditos.json')
+    .then((resposta) => resposta.json())
+    .then((dados) => (creditos.value = dados));
 </script>
 
 <template>
@@ -70,6 +77,43 @@ import { config } from '../lib/config.js';
                 Os arquivos anuais do satélite de referência não trazem FRP, risco de fogo nem dias sem chuva. Por isso esses campos
                 aparecem vazios em períodos antigos.
             </p>
+        </section>
+
+        <section class="cartao space-y-3 p-5">
+            <h2 class="text-lg font-semibold">Clima no mapa</h2>
+            <p>
+                Temperatura, umidade e chuva vêm do <a class="underline" href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+                (CC BY 4.0), na sede de cada município. São estimativas de modelos meteorológicos, não medições de estações locais, e tendem a
+                suavizar os picos: a máxima real pode passar um pouco do valor exibido. Só os dias já encerrados entram no painel. "Dias sem chuva" conta os dias desde o último com 1 mm ou mais.
+            </p>
+            <p class="text-sm text-tinta-2">
+                As faixas de cor do mapa são relativas ao período escolhido. Fumaça e seca do solo ainda não são exibidas.
+            </p>
+        </section>
+
+        <section v-if="creditos" class="cartao space-y-3 p-5">
+            <h2 class="text-lg font-semibold">Imagens</h2>
+            <p>
+                Foto do cabeçalho:
+                <a class="underline" href="https://commons.wikimedia.org/wiki/File:Parque_Nacional_Chapada_dos_Guimar%C3%A3es.jpg" target="_blank" rel="noopener">Parque Nacional Chapada dos Guimarães</a>,
+                de Pedro Spoladore (<a class="underline" href="https://creativecommons.org/licenses/by-sa/3.0/deed.pt-br" target="_blank" rel="noopener">CC BY-SA 3.0</a>), recortada e reduzida.
+            </p>
+            <p>
+                As bandeiras vêm da <a class="underline" href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>
+                e mantêm suas próprias licenças. {{ creditos.municipios.length }} dos 142 municípios têm bandeira exibida;
+                os demais não têm imagem com licença livre localizada.
+            </p>
+            <details>
+                <summary class="cursor-pointer text-sm font-medium">Ver autores e licenças</summary>
+                <ul class="mt-3 space-y-1 text-sm text-tinta-2">
+                    <li v-for="item in [creditos.estado, ...creditos.municipios]" :key="item.pagina">
+                        <span class="text-tinta">{{ item.municipio }}:&nbsp;</span>
+                        <a class="underline" :href="item.pagina" target="_blank" rel="noopener">{{ item.arquivo }}</a>
+                        <template v-if="item.autor">, {{ item.autor }}</template>
+                        ({{ item.licenca }})
+                    </li>
+                </ul>
+            </details>
         </section>
     </article>
 </template>

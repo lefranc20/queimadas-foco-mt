@@ -2,6 +2,7 @@
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { corDoTema, esquemaCor } from '../composables/useEsquemaCor.js';
+import { corDoValor, faixas, INDICADORES, textoClima } from '../lib/clima.js';
 import { dataHoraGmt, decimal, escaparHtml, numero } from '../lib/formato.js';
 import { carregarLeaflet } from '../lib/leaflet.js';
 
@@ -10,6 +11,9 @@ const props = defineProps({
     // GeoJSON de um município para destacar e enquadrar (página do município)
     destaque: { type: Object, default: null },
     altura: { type: String, default: '30rem' },
+    // clima por município (GET /api/clima) e indicador usado para colorir o mapa
+    clima: { type: Array, default: () => [] },
+    indicador: { type: String, default: '' },
 });
 
 const modo = defineModel('modo', { type: String, default: 'pontos' });
@@ -17,11 +21,13 @@ const modo = defineModel('modo', { type: String, default: 'pontos' });
 const CENTRO_MT = [-12.9, -55.9];
 const LIMITES_MT = [[-18.2, -61.8], [-7.2, -50.0]];
 const MAPA_BASE = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-const ATRIBUICAO = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · Focos: INPE · Limites: IBGE';
+const ATRIBUICAO = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · Focos: INPE · Limites: IBGE · Clima: <a href="https://open-meteo.com/">Open-Meteo</a>';
 
 const elemento = ref(null);
 const roteador = useRouter();
-let L, mapa, contornoEstado, contornoDestaque, clusters, calor;
+let L, mapa, contornoEstado, contornoDestaque, camadaClima, clusters, calor;
+let malhaMunicipios = null;
+let observadorTamanho = null;
 let desmontado = false;
 
 onMounted(async () => {
@@ -33,11 +39,10 @@ onMounted(async () => {
         zoom: 6,
         minZoom: 5,
         maxBounds: L.latLngBounds(LIMITES_MT).pad(0.5),
-        scrollWheelZoom: false, // a rolagem da página não deve dar zoom sem querer
     });
     mapa.fitBounds(LIMITES_MT);
-    mapa.on('click', () => mapa.scrollWheelZoom.enable());
-    mapa.on('mouseout', () => mapa.scrollWheelZoom.disable());
+    observadorTamanho = new ResizeObserver(() => mapa?.invalidateSize());
+    observadorTamanho.observe(elemento.value);
     L.tileLayer(MAPA_BASE, { attribution: ATRIBUICAO, maxZoom: 18, className: 'mapa-base' }).addTo(mapa);
 
     clusters = L.markerClusterGroup({
@@ -69,10 +74,12 @@ onMounted(async () => {
     const geojson = await fetch('/geo/mt-estado.json').then((r) => r.json());
     if (!mapa) return;
     contornoEstado = L.geoJSON(geojson, { interactive: false, style: estiloContorno }).addTo(mapa);
+    desenharClima();
 });
 
 onBeforeUnmount(() => {
     desmontado = true;
+    observadorTamanho?.disconnect();
     mapa?.remove();
     mapa = null;
 });
@@ -80,6 +87,7 @@ onBeforeUnmount(() => {
 watch(() => props.focos, desenharFocos);
 watch(() => props.destaque, desenharDestaque);
 watch(modo, aplicarModo);
+watch(() => [props.clima, props.indicador], desenharClima);
 watch(esquemaCor, () => {
     if (!mapa) return;
     contornoEstado?.setStyle(estiloContorno());
@@ -141,6 +149,46 @@ function desenharDestaque() {
     mapa.fitBounds(contornoDestaque.getBounds(), { padding: [20, 20] });
 }
 
+/** Pinta os municípios pelo indicador escolhido; passar o mouse mostra todos os dados de clima. */
+async function desenharClima() {
+    if (!mapa) return;
+
+    camadaClima?.remove();
+    camadaClima = null;
+    if (!props.indicador || !props.clima.length) return;
+
+    malhaMunicipios ??= await fetch('/geo/mt-municipios.json').then((r) => r.json());
+    if (!mapa) return;
+
+    const porId = new Map(props.clima.map((m) => [String(m.id), m]));
+    const { valor } = INDICADORES[props.indicador];
+    const escala = faixas(props.indicador, props.clima);
+
+    camadaClima?.remove();
+    camadaClima = L.geoJSON(malhaMunicipios, {
+        style: ({ properties }) => {
+            const municipio = porId.get(properties.codarea);
+            return {
+                color: corDoTema('superficie'),
+                weight: 0.6,
+                fillColor: municipio ? corDoValor(escala, valor(municipio)) : 'transparent',
+                fillOpacity: 0.65,
+            };
+        },
+        onEachFeature: ({ properties }, camada) => {
+            const municipio = porId.get(properties.codarea);
+            if (municipio) camada.bindTooltip(textoTooltip(municipio), { sticky: true });
+        },
+    }).addTo(mapa);
+    camadaClima.bringToBack();
+}
+
+function textoTooltip(municipio) {
+    const linhas = textoClima(municipio).map(([rotulo, texto]) => `<div>${escaparHtml(rotulo)}: ${escaparHtml(texto)}</div>`);
+
+    return `<strong>${escaparHtml(municipio.nome)}</strong>${linhas.join('')}`;
+}
+
 function popup(foco) {
     const linha = (rotulo, valor) =>
         valor === null || valor === undefined ? '' : `<div><span style="color:var(--tinta-2)">${rotulo}:</span> ${escaparHtml(valor)}</div>`;
@@ -154,7 +202,7 @@ function popup(foco) {
         ${linha('Detectado em', dataHoraGmt(foco.data_hora_gmt))}
         ${linha('Satélite', foco.satelite)}
         ${linha('Bioma', foco.bioma)}
-        ${linha('FRP (MW)', foco.frp === null ? null : decimal(foco.frp))}
+        ${linha('Intensidade', foco.frp === null || foco.frp === undefined ? null : `${foco.intensidade ?? 'sem referência'} (${decimal(foco.frp)} MW)`)}
         ${linha('Risco de fogo', foco.risco_fogo === null ? null : decimal(foco.risco_fogo))}
         ${linha('Dias sem chuva', foco.numero_dias_sem_chuva)}
     `;
