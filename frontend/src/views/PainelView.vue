@@ -1,12 +1,14 @@
 <script setup>
 import { computed, ref } from 'vue';
 import BarraFiltros from '../components/BarraFiltros.vue';
+import CartaoMapa from '../components/CartaoMapa.vue';
 import MapaFocos from '../components/MapaFocos.vue';
 import PainelGrafico from '../components/PainelGrafico.vue';
 import RankingMunicipios from '../components/RankingMunicipios.vue';
 import ResumoAtual from '../components/ResumoAtual.vue';
 import { useConsulta } from '../composables/useConsulta.js';
 import { useFiltros } from '../composables/useFiltros.js';
+import { faixas, INDICADORES } from '../lib/clima.js';
 import { data, decimal, numero, periodoCurto, periodoLongo } from '../lib/formato.js';
 
 const { filtros, parametros, usandoReferencia } = useFiltros();
@@ -16,7 +18,15 @@ const { dados: municipios } = useConsulta('municipios');
 const { dados: focos, carregando: carregandoFocos, erro: erroFocos } = useConsulta('focos', parametros);
 const { dados: serie, carregando: carregandoSerie } = useConsulta('serie-temporal', parametros);
 
+const { dados: clima } = useConsulta('clima', () => ({ inicio: parametros.value.inicio, fim: parametros.value.fim }));
+
 const modoMapa = ref('pontos');
+const indicadorClima = ref('');
+const municipiosClima = computed(() => clima.value?.municipios ?? []);
+const umaCasa = (valor) => decimal(Math.round(valor * 10) / 10);
+const legendaClima = computed(() =>
+    indicadorClima.value && municipiosClima.value.length ? faixas(indicadorClima.value, municipiosClima.value) : [],
+);
 
 const anoAnterior = computed(() => Number(filtros.value.fim.slice(0, 4)) - 1);
 const pontos = computed(() => serie.value?.serie ?? []);
@@ -49,28 +59,61 @@ const semDadosMeteorologicos = computed(() => pontos.value.every((p) => p.media_
         <ResumoAtual />
 
         <div class="grid gap-5 lg:grid-cols-3">
-            <section class="cartao p-4 lg:col-span-2" aria-labelledby="titulo-mapa">
-                <div class="mb-3 flex flex-wrap items-start justify-between gap-2">
-                    <div>
-                        <h2 id="titulo-mapa" class="text-sm font-semibold">Focos no mapa</h2>
-                        <p class="text-xs text-tinta-2">
-                            <template v-if="focos">
-                                {{ numero(focos.total) }} focos de {{ data(focos.periodo.inicio) }} a {{ data(focos.periodo.fim) }}
-                                <template v-if="focos.truncado"> · exibindo os {{ numero(focos.limite) }} mais recentes</template>
-                            </template>
-                            <template v-else-if="erroFocos">{{ erroFocos }}</template>
-                            <template v-else>Carregando focos…</template>
-                        </p>
-                    </div>
+            <CartaoMapa class="lg:col-span-2" rotulo="Focos no mapa">
+                <template #titulo>
+                    <h2 class="text-sm font-semibold">Focos no mapa</h2>
+                    <p class="text-xs text-tinta-2">
+                        <template v-if="focos">
+                            {{ numero(focos.total) }} focos de {{ data(focos.periodo.inicio) }} a {{ data(focos.periodo.fim) }}
+                            <template v-if="focos.truncado"> · exibindo os {{ numero(focos.limite) }} mais recentes</template>
+                        </template>
+                        <template v-else-if="erroFocos">{{ erroFocos }}</template>
+                        <template v-else>Carregando focos…</template>
+                    </p>
+                </template>
+
+                <template #controles>
+                    <select v-model="indicadorClima" class="campo h-8 text-xs" aria-label="Clima no mapa">
+                        <option value="">Sem clima no mapa</option>
+                        <option v-for="(item, chave) in INDICADORES" :key="chave" :value="chave">{{ item.rotulo }}</option>
+                    </select>
                     <div class="flex rounded-lg border border-borda p-0.5" role="group" aria-label="Visualização do mapa">
                         <button type="button" class="botao-aba" :aria-pressed="modoMapa === 'pontos'" @click="modoMapa = 'pontos'">Pontos</button>
                         <button type="button" class="botao-aba" :aria-pressed="modoMapa === 'calor'" @click="modoMapa = 'calor'">Mapa de calor</button>
                     </div>
-                </div>
-                <div :class="{ 'opacity-60 transition-opacity': carregandoFocos }">
-                    <MapaFocos v-model:modo="modoMapa" :focos="focos?.focos ?? []" />
-                </div>
-            </section>
+                </template>
+
+                <template #default="{ expandido }">
+                    <div class="h-full" :class="{ 'opacity-60 transition-opacity': carregandoFocos }">
+                        <MapaFocos
+                            v-model:modo="modoMapa"
+                            :focos="focos?.focos ?? []"
+                            :clima="municipiosClima"
+                            :indicador="indicadorClima"
+                            :altura="expandido ? '100%' : '30rem'"
+                        />
+                    </div>
+                </template>
+
+                <template #rodape>
+                    <div v-if="indicadorClima" class="mt-2 text-xs text-tinta-2">
+                        <template v-if="legendaClima.length">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                                <span class="font-medium">{{ INDICADORES[indicadorClima].rotulo }}</span>
+                                <span v-for="faixa in legendaClima" :key="faixa.cor" class="flex items-center gap-1">
+                                    <span class="size-3 rounded-sm" :style="{ background: faixa.cor }"></span>
+                                    {{ umaCasa(faixa.de) }} a {{ umaCasa(faixa.ate) }} {{ INDICADORES[indicadorClima].unidade }}
+                                </span>
+                            </div>
+                            <p v-if="clima.cobertura.parcial" class="mt-1 font-medium text-status-alta">
+                                Atenção: há clima só de {{ data(clima.cobertura.inicio) }} a {{ data(clima.cobertura.fim) }}, não de todo o período selecionado.
+                            </p>
+                            <p class="mt-1">Passe o mouse ou toque em um município para ver todos os dados. Valores estimados por modelo meteorológico (Open-Meteo), não por estações locais.</p>
+                        </template>
+                        <template v-else>Sem dados de clima para este período.</template>
+                    </div>
+                </template>
+            </CartaoMapa>
 
             <RankingMunicipios class="lg:max-h-[36rem]" />
         </div>
