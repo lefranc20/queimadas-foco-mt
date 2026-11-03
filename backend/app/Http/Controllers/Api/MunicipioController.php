@@ -7,6 +7,7 @@ use App\Http\Requests\FiltroFocosRequest;
 use App\Models\Foco;
 use App\Models\Municipio;
 use App\Services\EstatisticasFocos;
+use App\Services\SituacaoFocos;
 use Illuminate\Support\Arr;
 
 class MunicipioController extends Controller
@@ -25,7 +26,7 @@ class MunicipioController extends Controller
      * Totais do município no período, posição no ranking estadual, histórico por ano
      * e a série mensal do ano de "fim" comparada com o ano anterior.
      */
-    public function show(Municipio $municipio, FiltroFocosRequest $request, EstatisticasFocos $estatisticas): array
+    public function show(Municipio $municipio, FiltroFocosRequest $request, EstatisticasFocos $estatisticas, SituacaoFocos $situacao): array
     {
         $filtrosEstado = Arr::except($request->filtros(), ['municipio']);
         $filtros = [...$filtrosEstado, 'municipio' => $municipio->id];
@@ -45,6 +46,7 @@ class MunicipioController extends Controller
         return [
             'id' => $municipio->id,
             'nome' => $municipio->nome,
+            'situacao' => $situacao->doMunicipio($municipio->id),
             'periodo' => $request->periodo(),
             'total' => $estatisticas->total($filtros),
             'posicao_ranking' => $posicao === false ? null : $posicao + 1,

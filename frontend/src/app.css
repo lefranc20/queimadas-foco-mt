@@ -25,6 +25,7 @@
 
     --status-alta: #d03b3b;
     --status-baixa: #006300;
+    --status-aviso: #a16207;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,6 +48,7 @@
 
         --status-alta: #e66767;
         --status-baixa: #0ca30c;
+        --status-aviso: #fab219;
     }
 }
 
@@ -69,6 +71,7 @@
 
     --status-alta: #e66767;
     --status-baixa: #0ca30c;
+    --status-aviso: #fab219;
 }
 
 @theme inline {
@@ -89,6 +92,7 @@
     --color-fogo-forte: var(--fogo-forte);
     --color-status-alta: var(--status-alta);
     --color-status-baixa: var(--status-baixa);
+    --color-status-aviso: var(--status-aviso);
 }
 
 @layer base {

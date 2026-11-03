@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FiltroFocosRequest;
 use App\Models\Foco;
+use App\Services\IntensidadeFoco;
 
 class FocoController extends Controller
 {
@@ -16,7 +17,7 @@ class FocoController extends Controller
      * Pontos para o mapa, do mais recente para o mais antigo. Se houver mais focos que o
      * limite, "truncado" vem verdadeiro e "total" informa quantos existem no filtro.
      */
-    public function index(FiltroFocosRequest $request): array
+    public function index(FiltroFocosRequest $request, IntensidadeFoco $intensidade): array
     {
         $consulta = Foco::query()->filtrar($request->filtros());
         $limite = $request->integer('limite', self::LIMITE_PADRAO);
@@ -43,6 +44,7 @@ class FocoController extends Controller
                 'numero_dias_sem_chuva' => $foco->numero_dias_sem_chuva === null ? null : (int) $foco->numero_dias_sem_chuva,
                 'risco_fogo' => $foco->risco_fogo === null ? null : (float) $foco->risco_fogo,
                 'frp' => $foco->frp === null ? null : (float) $foco->frp,
+                'intensidade' => $intensidade->classificar($foco->satelite, $foco->frp === null ? null : (float) $foco->frp),
             ]);
 
         return [
