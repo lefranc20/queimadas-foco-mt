@@ -11,6 +11,7 @@ export const router = createRouter({
             component: () => import('./views/MunicipioView.vue'),
             props: (rota) => ({ id: Number(rota.params.id) }),
         },
+        { path: '/agora', name: 'agora', component: () => import('./views/AgoraView.vue') },
         { path: '/sobre', name: 'sobre', component: () => import('./views/SobreView.vue') },
         { path: '/:caminho(.*)*', redirect: { name: 'painel' } },
     ],

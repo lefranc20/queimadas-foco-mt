@@ -13,7 +13,8 @@ Painel web dos focos de queimada em Mato Grosso, com dados abertos do INPE colet
 - Série temporal diária ou mensal, com o mesmo período do ano anterior
 - Médias de dias sem chuva e de risco de fogo
 - Página de cada município com histórico próprio
-- Coleta diária automática dos arquivos do INPE
+- Aba "Agora" com os focos das últimas horas, coletados a cada 10 minutos
+- Clima por município no mapa: temperatura, umidade, chuva e dias sem chuva
 
 ## Stack
 
@@ -39,6 +40,8 @@ php artisan migrate --seed
 
 php artisan focos:importar --dias=30        # últimos 30 dias (~3 min)
 php artisan focos:importar-historico 2025   # ano anterior, para as comparações
+php artisan focos:recentes --horas=24       # focos das últimas 24 horas
+php artisan clima:importar --dias=92        # clima dos últimos 3 meses
 php artisan serve
 ```
 
@@ -53,6 +56,6 @@ yarn dev
 
 ## Sobre os dados
 
-Os focos vêm do [Programa Queimadas do INPE](https://terrabrasilis.dpi.inpe.br/queimadas/portal/) e os limites dos municípios, do IBGE.
+Os focos vêm do [Programa Queimadas do INPE](https://terrabrasilis.dpi.inpe.br/queimadas/portal/), os limites dos municípios, do IBGE, e o clima, do [Open-Meteo](https://open-meteo.com/) (estimativas de modelos meteorológicos, CC BY 4.0).
 
 Os arquivos do INPE misturam vários satélites, então o mesmo fogo pode aparecer mais de uma vez e o total muda conforme os satélites em operação. Para comparar períodos, o INPE usa um único satélite de referência (AQUA, passagem da tarde), e o painel abre com ele selecionado.
